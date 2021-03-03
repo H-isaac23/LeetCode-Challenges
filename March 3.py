@@ -40,3 +40,11 @@ class Solution2(object):
         num_sum = sum(nums)
 
         return ((len(nums) * (len(nums) + 1)) / 2) - num_sum
+
+class Solution3(object):
+    def missingNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        return sum(range(len(nums)+1)) - sum(nums)
