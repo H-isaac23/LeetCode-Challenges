@@ -28,3 +28,28 @@ Constraints:
 1 <= words.length <= 2000
 1 <= words[i].length <= 7
 words[i] consists of only lowercase letters."""
+
+class Solution:
+    def minimumLengthEncoding(self, words: List[str]) -> int:
+        string = ""
+        i = 0
+        while i < len(words):
+            if (words[i] in string or string[:-1] ) and words[i][-1] == string[-2]:
+                i += 1
+            elif i == len(words)-1:
+                string += f"{words[i]}#"
+                print(string)
+                return len(string)
+            elif i < len(words)-1:
+                if (words[i+1] in words[i] or words[i] in words[i+1]) and words[i+1][-1] == words[i][-1]:
+                    if words[i] > words[i+1]:
+                        string += f"{words[i]}#"
+                    else:
+                        string += f"{words[i+1]}#"
+                    i += 2
+                else:
+                    string += f"{words[i]}#"
+                    i += 1
+        print(string)
+        return len(string)
+
