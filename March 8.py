@@ -52,3 +52,23 @@ class Solution:
             last -= 1
 
         return 1
+
+
+class Solution2:
+    def removePalindromeSub(self, s: str) -> int:
+        last = len(s) - 1
+        start = 0
+
+        se = [x for x in s]
+
+        if s == "":
+            return 0
+
+        while start <= last:
+            if se[start] != se[last]:
+                return 2
+            start += 1
+            last -= 1
+
+        return 1
+    
