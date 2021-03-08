@@ -35,3 +35,20 @@ Constraints:
 
 0 <= s.length <= 1000
 s only consists of letters 'a' and 'b'"""
+
+
+class Solution:
+    def removePalindromeSub(self, s: str) -> int:
+        last = len(s) - 1
+        start = 0
+
+        if s == "":
+            return 0
+
+        while start <= last:
+            if s[start] != s[last]:
+                return 2
+            start += 1
+            last -= 1
+
+        return 1
