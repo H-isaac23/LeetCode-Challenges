@@ -71,4 +71,7 @@ class Solution2:
             last -= 1
 
         return 1
-    
+
+# Solution 2:
+# Runtime: 20ms, better than 98.82% python3 submissions.
+# Memory: 14.1mb, better than 70.20% python3 submissions.
