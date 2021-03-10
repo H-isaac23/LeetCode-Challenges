@@ -44,3 +44,60 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 Constraints:
 
 1 <= num <= 3999"""
+
+
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        converted = ""
+
+        while num:
+            if num >= 1000:
+                converted += "M"
+                num -= 1000
+            elif num >= 500:
+                if num // 900 == 1:
+                    converted += "CM"
+                    num -= 900
+                else:
+                    converted += "D"
+                    num -= 500
+            elif num >= 100:
+                if num // 400 == 1:
+                    converted += "CD"
+                    num -= 400
+                else:
+                    converted += "C"
+                    num -= 100
+            elif num >= 50:
+                if num // 90 == 1:
+                    converted += "XC"
+                    num -= 90
+                else:
+                    converted += "L"
+                    num -= 50
+            elif num >= 10:
+                if num // 40 == 1:
+                    converted += "XL"
+                    num -= 40
+                else:
+                    converted += "X"
+                    num -= 10
+            elif num >= 5:
+                if num / 9 == 1:
+                    converted += "IX"
+                    num -= 9
+                else:
+                    converted += "V"
+                    num -= 5
+            elif num >= 1:
+                if num / 4 == 1:
+                    converted += "IV"
+                    num -= 4
+                else:
+                    converted += "I"
+                    num -= 1
+
+        return converted
+
+# Submission Detail
+# Runtime: 44ms, faster than 87.75% python 3 submissions
