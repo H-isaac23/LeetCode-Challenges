@@ -8,3 +8,6 @@ This is a repo for storing my solutions on daily leetcode problems.
 -GH: Got a hint
 
 -SI: Solved by the internet
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
