@@ -24,3 +24,11 @@ Output: true
 
 Note:
 1 <= N <= 10^9"""
+
+class Solution:
+    def reorderedPowerOf2(self, N: int) -> bool:
+        n = sorted([int(x) for x in str(N)])
+        for i in range(30):
+            if sorted([int(x) for x in str(1 << i)]) == n: return True
+        return False
+    
