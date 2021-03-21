@@ -31,4 +31,7 @@ class Solution:
         for i in range(30):
             if sorted([int(x) for x in str(1 << i)]) == n: return True
         return False
-    
+
+# Submission Details:
+# Runtime: 28ms, >91.13%
+# Memory: 14.1mb, >76.21%
