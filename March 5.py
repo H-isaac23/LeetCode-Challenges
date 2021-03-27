@@ -15,3 +15,37 @@ Constraints:
 
 The number of nodes in the tree is in the range [1, 104].
 -231 <= Node.val <= 231 - 1"""
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def averageOfLevels(self, root: TreeNode) -> List[float]:
+        if root is None:
+            return root
+
+        queue = []
+        vals = []
+        queue.append(root)
+
+        while len(queue) > 0:
+            n = 0
+            level_sum = 0
+            for _ in range(len(queue)):
+                node = queue.pop(0)
+                if node.right:
+                    queue.append(node.right)
+                if node.left:
+                    queue.append(node.left)
+                n += 1
+                print(n, node.val)
+                level_sum += node.val
+
+            average = level_sum / n
+            vals.append(average)
+
+        return vals
