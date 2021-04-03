@@ -37,7 +37,6 @@ class Solution:
             else:
                 stack.pop()
                 ans = max(ans, i - stack[-1])
-                print(i - stack[-1], i, stack[-1])
 
         return ans
 
