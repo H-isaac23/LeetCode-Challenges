@@ -47,3 +47,10 @@ class Solution2:
 
 # Submission Details:
 # >80.50%/>24.50%
+
+class Solution3:
+    def minOperations(self, n: int) -> int:
+        return n*n//4
+
+# Submission Details:
+# >100%/>75%
