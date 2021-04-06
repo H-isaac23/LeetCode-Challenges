@@ -23,3 +23,17 @@ Output: 9
 Constraints:
 
 1 <= n <= 10^4"""
+
+
+class Solution:
+    def minOperations(self, n: int) -> int:
+        i = 0
+        sums = 0
+        while 2 * (i) + 1 < n:
+            sums += n - (2 * (i) + 1)
+            i += 1
+
+        return sums
+
+# Submission Details:
+# >25.38%/50.38%
