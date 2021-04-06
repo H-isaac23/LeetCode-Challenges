@@ -36,4 +36,14 @@ class Solution:
         return sums
 
 # Submission Details:
-# >25.38%/50.38%
+# >25.38%/>50.38%
+
+class Solution2:
+    def minOperations(self, n: int) -> int:
+        if n%2 == 1:
+            return int(n//2*((n//2)+1))
+        else:
+            return int((n/2)**2)
+
+# Submission Details:
+# >80.50%/>24.50%
