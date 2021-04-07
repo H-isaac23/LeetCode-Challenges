@@ -29,3 +29,23 @@ Constraints:
 2 <= s.length <= 1000
 s.length is even.
 s consists of uppercase and lowercase letters."""
+
+
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+        c1 = 0
+        c2 = 0
+        i = 0
+        j = len(s) // 2
+        while j < len(s):
+            if s[i] in "aeiouAEIOU":
+                c1 += 1
+            if s[j] in "aeiouAEIOU":
+                c2 += 1
+            i += 1
+            j += 1
+
+        return c1 == c2
+
+# Submission Details:
+# >100%/>100%
