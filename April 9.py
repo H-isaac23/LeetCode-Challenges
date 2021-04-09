@@ -27,3 +27,27 @@ Constraints:
 1 <= words[i].length <= 20
 order.length == 26
 All characters in words[i] and order are English lowercase letters."""
+
+
+class Solution:
+    def isAlienSorted(self, words: List[str], order: str) -> bool:
+        for i in range(1, len(words)):
+            d = list(order)
+            a = words[i - 1]
+            b = words[i]
+            for j in range(len(a)):
+                if j == len(b):
+                    return False
+                achar = a[j]
+                bchar = b[j]
+                aix = d.index(achar)
+                bix = d.index(bchar)
+                if aix < bix:
+                    break
+                if aix > bix:
+                    return False
+
+        return True
+
+# Submission Details:
+# >61.59%/>48.60%
