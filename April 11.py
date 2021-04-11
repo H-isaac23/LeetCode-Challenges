@@ -46,3 +46,20 @@ class Solution:
         self.helper(node.right, d + 1, node)
         self.helper(node.left, d + 1, node)
 
+
+class Solution2:
+    def deepestLeavesSum(self, root: TreeNode) -> int:
+        queue = []
+        queue.append(root)
+
+        while len(queue):
+            val = 0
+            for _ in range(len(queue)):
+                x = queue.pop(0)
+                if x.right:
+                    queue.append(x.right)
+                if x.left:
+                    queue.append(x.left)
+                val += x.val
+            if len(queue) == 0:
+                return val
