@@ -17,3 +17,25 @@ distinct integers: 1 and 2.
 
 Note:
 The n and k are in the range 1 <= k < n <= 104."""
+
+
+class Solution:
+    def constructArray(self, n: int, k: int) -> List[int]:
+        if k == 1:
+            return list(range(1, n + 1))
+
+        kR = list(range(k, 1, -1))
+        N = list(range(1, n + 1))
+        j = 0
+        for i in kR:
+            x = self.find(N[j:], i, N[j])
+            N.pop(N.index(x))
+            N.insert(j + 1, x)
+            j += 1
+
+        return N
+
+    def find(self, arr, num, h):
+        for x in arr:
+            if x - h == num or h - x == num:
+                return x
