@@ -39,3 +39,25 @@ class Solution:
         for x in arr:
             if x - h == num or h - x == num:
                 return x
+
+
+class Solution2:
+    def constructArray(self, n: int, k: int) -> List[int]:
+        if k == 1:
+            return list(range(1, n + 1))
+
+        kR = list(range(k, 0, -1))
+        N = [1]
+
+        for i in kR:
+            if N[-1] + i - 1 > k:
+                N.append(N[-1] - i)
+            else:
+                N.append(N[-1] + i)
+
+        x = list(range(1, n + 1))
+        for w in x:
+            if w not in N:
+                N.append(w)
+
+        return N
