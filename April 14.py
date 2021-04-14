@@ -55,3 +55,28 @@ class Solution:
 
 # Submission Details:
 # >80.18%
+
+class Solution2:
+    def partition(self, head: ListNode, x: int) -> ListNode:
+        f = ListNode()
+        b = ListNode()
+        front = f
+        back = b
+        curr = head
+
+        while curr:
+            if curr.val < x:
+                front.next = curr
+                front = front.next
+            else:
+                back.next = curr
+                back = back.next
+            curr = curr.next
+
+        front.next = b.next
+        back.next = None
+
+        return f.next
+
+# Submission Details:
+# >99%/99.10%
