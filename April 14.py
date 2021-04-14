@@ -14,3 +14,44 @@ Constraints:
 The number of nodes in the list is in the range [0, 200].
 -100 <= Node.val <= 100
 -200 <= x <= 200"""
+
+
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def partition(self, head: ListNode, x: int) -> ListNode:
+        dummy = ListNode()
+        dummy.next = head
+        main = dummy
+        n = []
+
+        while main.next:
+            if main.next.val < x:
+                n.append(main.next)
+                main.next = main.next.next
+            else:
+                main = main.next
+
+        main = dummy
+        while main.next and len(n):
+            if n[0].val <= main.next.val:
+                node = n.pop(0)
+                temp = main.next
+                main.next = node
+                node.next = temp
+            main = main.next
+
+        while len(n):
+            print("hi")
+            node = n.pop(0)
+            main.next = node
+            main = main.next
+
+        return dummy.next
+
+# Submission Details:
+# >80.18%
