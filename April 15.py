@@ -24,7 +24,6 @@ Constraints:
 
 0 <= n <= 30"""
 
-
 class Solution:
     def fib(self, n: int) -> int:
         self.vals = [0] * (31)
@@ -47,4 +46,10 @@ class Solution:
             return self.vals[n]
         else:
             return self.vals[n]
-        
+
+from math import sqrt
+
+class Solution:
+    def fib(self, n: int) -> int:
+        sqrt5 = sqrt(5)
+        return int((pow(1 + sqrt5, n) - pow(1 - sqrt5, n)) / pow(2, n) / sqrt5)
