@@ -24,3 +24,27 @@ Constraints:
 
 0 <= n <= 30"""
 
+
+class Solution:
+    def fib(self, n: int) -> int:
+        self.vals = [0] * (31)
+        if n == 0:
+            return 0
+        elif n == 1 or n == 2:
+            return 1
+
+        return self.helper(n - 1) + self.helper(n - 2)
+
+    def helper(self, n):
+        if n == 0:
+            return 0
+        if n == 1:
+            return 1
+
+        if self.vals[n] == 0:
+            val = self.helper(n - 1) + self.helper(n - 2)
+            self.vals[n] = val
+            return self.vals[n]
+        else:
+            return self.vals[n]
+        
