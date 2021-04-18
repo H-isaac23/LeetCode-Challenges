@@ -19,3 +19,34 @@ The number of nodes in the list is sz.
 1 <= sz <= 30
 0 <= Node.val <= 100
 1 <= n <= sz"""
+
+
+
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        if head is None or head.next is None:
+            return None
+        dummy = ListNode()
+        dummy.next = head
+        main = dummy
+        fast = dummy
+
+        for i in range(n):
+            fast = fast.next
+
+        while fast.next:
+            main = main.next
+            fast = fast.next
+
+        main.next = main.next.next
+
+        return dummy.next
+
+# Submission Details:
+# >91.78%/>48.74%
