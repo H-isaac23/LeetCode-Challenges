@@ -25,3 +25,24 @@ triangle[i].length == triangle[i - 1].length + 1
 
 Follow up: Could you do this using only O(n) extra space, where n is the total number of rows in the triangle?"""
 
+
+class Solution:
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        self.num = len(triangle)
+        self.tri = triangle
+        self.min = None
+        self.helper(0, 0, 0)
+        return self.min
+
+    def helper(self, layer, pos, n_sum):
+        if layer == self.num:
+            if self.min == None:
+                self.min = n_sum
+            else:
+                self.min = min(self.min, n_sum)
+            return
+
+        self.helper(layer + 1, pos, n_sum + self.tri[layer][pos])
+        self.helper(layer + 1, pos + 1, n_sum + self.tri[layer][pos])
+
+# Works, but too slow
