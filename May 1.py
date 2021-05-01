@@ -25,3 +25,24 @@ Constraints:
 1 <= prefix.length, suffix.length <= 10
 words[i], prefix and suffix consist of lower-case English letters only.
 At most 15000 calls will be made to the function f."""
+
+
+class WordFilter:
+
+    def __init__(self, words: List[str]):
+        self.words = words
+        self.i = -1
+
+    def f(self, prefix: str, suffix: str) -> int:
+        for word in self.words:
+            lp = len(prefix)
+            ls = len(suffix)
+            if word[:lp] == prefix and word[len(word) - ls:] == suffix:
+                self.i = self.words.index(word)
+        return self.i
+
+# Your WordFilter object will be instantiated and called as such:
+# obj = WordFilter(words)
+# param_1 = obj.f(prefix,suffix)
+
+# Works, but too slow
