@@ -23,3 +23,22 @@ Constraints:
 1 <= nums.length <= 1000
 0 <= nums[i] <= 105"""
 
+
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        i = 0
+        next_jump = 0
+        curr = -1
+        ans = 0
+
+        while next_jump < len(nums) - 1:
+            if i > curr:
+                ans += 1
+                curr = next_jump
+            next_jump = max(next_jump, i + nums[i])
+            i += 1
+
+        return ans
+
+# Submission Details:
+# >100%/>99%
