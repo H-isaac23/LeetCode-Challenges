@@ -20,3 +20,31 @@ left and right cannot have leading zeros.
 left and right represent integers in the range [1, 1018].
 left is less than or equal to right."""
 
+from math import sqrt
+
+
+class Solution:
+    def superpalindromesInRange(self, left: str, right: str) -> int:
+        start = int(sqrt(int(left)))
+        end = int(sqrt(int(right)))
+        count = 0
+
+        for i in range(start, end + 1):
+            if self.is_palindrome(str(i)):
+                if self.is_palindrome(str(i * i)):
+                    count += 1
+
+        return count
+
+    def is_palindrome(self, num):
+        times = len(num) // 2 + 1
+        r = 0
+        l = len(num) - 1
+
+        for i in range(times):
+            if num[r] != num[l]:
+                return False
+
+        return True
+
+# Works, but too slow
