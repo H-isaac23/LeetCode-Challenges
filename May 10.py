@@ -17,3 +17,22 @@ Constraints:
 
 0 <= n <= 5 * 106"""
 
+
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        if n < 3:
+            return 0
+        primes = [2]
+
+        for i in range(3, n):
+            append = True
+            for x in primes:
+                if i % x == 0:
+                    append = False
+                    break
+            if append:
+                primes.append(i)
+
+        return len(primes)
+
+# Works, but too slow
