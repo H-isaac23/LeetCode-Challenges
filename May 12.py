@@ -34,3 +34,16 @@ Constraints:
 1 <= cardPoints.length <= 10^5
 1 <= cardPoints[i] <= 10^4
 1 <= k <= cardPoints.length"""
+
+class Solution:
+    def maxScore(self, cardPoints: List[int], k: int) -> int:
+        slice_total = sum(cardPoints[:k])
+        ans = slice_total
+        j = k-1
+        for i in range(len(cardPoints)-1, len(cardPoints)-k-1, -1):
+            slice_total += cardPoints[i] - cardPoints[j]
+            ans = max(ans, slice_total)
+            j-=1
+        return ans
+
+# >90%/>87%
