@@ -17,3 +17,14 @@ Constraints:
 n == nums.length
 1 <= nums.length <= 105
 -109 <= nums[i] <= 109"""
+
+class Solution:
+    def minMoves2(self, nums: List[int]) -> int:
+        nums.sort()
+        median = nums[len(nums) // 2]
+        ans = 0
+        for x in nums: ans += abs(median - x)
+        return ans
+
+# Submission Details:
+# >99%/>100%
