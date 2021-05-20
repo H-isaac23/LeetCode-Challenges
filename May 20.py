@@ -18,3 +18,27 @@ Constraints:
 The number of nodes in the tree is in the range [0, 2000].
 -1000 <= Node.val <= 1000"""
 
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        if not root:
+            return []
+        answer = []
+        nodes = []
+        nodes.append(root)
+        while len(nodes):
+            vals = []
+            for _ in range(len(nodes)):
+                if nodes[0]:
+                    node = nodes.pop(0)
+                    vals.append(node.val)
+                    if node.left:
+                        nodes.append(node.left)
+                    if node.right:
+                        nodes.append(node.right)
+                else:
+                    nodes.pop(0)
+            answer.append(vals)
+        return answer
+
+# Submission Details:
+# >60%/>50%
