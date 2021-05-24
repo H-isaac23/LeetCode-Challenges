@@ -35,3 +35,14 @@ class Solution:
 
 # Submission Details:
 # >98%/>60%
+
+class Solution:
+    def toLowerCase(self, s: str) -> str:
+        new = list(s)
+        for i in range(len(new)):
+            if ord(new[i]) >= 65 and ord(new[i]) <= 90:
+                new[i] = chr(ord(new[i]) + 32)
+        return ''.join(new)
+
+# Submission Details:
+# >98%
