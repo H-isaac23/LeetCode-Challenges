@@ -22,4 +22,16 @@ class Solution:
         return s.lower()
 
 # Submission Details
-# 80%/>60%
+# 80%/>70%
+
+class Solution:
+    def toLowerCase(self, s: str) -> str:
+        new = list(s)
+        for i in range(len(new)):
+            if new[i].isupper():
+                new[i] = new[i].lower()
+
+        return ''.join(new)
+
+# Submission Details:
+# >98%/>60%
