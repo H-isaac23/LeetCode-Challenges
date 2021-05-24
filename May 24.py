@@ -17,3 +17,9 @@ Constraints:
 1 <= s.length <= 100
 s consists of printable ASCII characters."""
 
+class Solution:
+    def toLowerCase(self, s: str) -> str:
+        return s.lower()
+
+# Submission Details
+# 80%/>60%
