@@ -29,3 +29,30 @@ Constraints:
 
 1 <= tokens.length <= 104
 tokens[i] is either an operator: "+", "-", "*", or "/", or an integer in the range [-200, 200]."""
+
+from math import ceil
+
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        q = []
+        for x in tokens:
+            if x[-1].isnumeric():
+                q.append(x)
+            else:
+                n2 = q.pop()
+                n1 = q.pop()
+                if x == "+":
+                    q.append(str(int(n1) + int(n2)))
+                elif x == "-":
+                    q.append(str(int(n1) - int(n2)))
+                elif x == "*":
+                    q.append(str(int(n1) * int(n2)))
+                elif x == "/":
+                    if (int(n2) < 0) != (int(n1) < 0):
+                        q.append(str(ceil(int(n1) / int(n2))))
+                    else:
+                        q.append(str(int(n1) // int(n2)))
+        return q.pop()
+
+# Submission Details:
+# >80%
