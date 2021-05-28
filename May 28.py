@@ -19,3 +19,23 @@ Constraints:
 
 1 <= nums.length <= 105
 1 <= nums[i] <= 104"""
+
+
+class Solution:
+    def maximumUniqueSubarray(self, nums: List[int]) -> int:
+        left, ans, curr = 0, 0, 0
+        nmap = [0] * 10001
+
+        for right in nums:
+            nmap[right] += 1
+            curr += right
+            while nmap[right] > 1:
+                curr -= nums[left]
+                nmap[nums[left]] -= 1
+                left += 1
+            ans = max(ans, curr)
+
+        return ans
+
+# Submission Details:
+# >90%/>63%
