@@ -55,3 +55,20 @@ class Solution:
 
         arr[i + 1], arr[r] = arr[r], arr[i + 1]
         return i + 1
+
+
+class Solution2:
+    def maximumGap(self, nums: List[int]) -> int:
+        if len(nums) < 2:
+            return 0
+
+        nums.sort()
+        left = 0
+        right = 1
+        ans = 0
+        while right < len(nums):
+            ans = max(ans, abs(nums[left] - nums[right]))
+            right += 1
+            left += 1
+
+        return ans
