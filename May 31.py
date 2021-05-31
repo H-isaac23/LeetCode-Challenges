@@ -38,3 +38,19 @@ All characters of products[i] are lower-case English letters.
 1 <= searchWord.length <= 1000
 All characters of searchWord are lower-case English letters."""
 
+class Solution:
+    def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
+        ans = []
+        products.sort()
+        for i in range(1, len(searchWord)+1):
+            temp = []
+            for product in products:
+                if product[:i] == searchWord[:i] and len(temp) < 3:
+                    temp.append(product)
+                elif len(temp) == 3:
+                    break
+            ans.append(temp)
+        return ans
+
+# Submission Details:
+# >10%/>90%
