@@ -21,3 +21,25 @@ m == grid.length
 n == grid[i].length
 1 <= m, n <= 50
 grid[i][j] is either 0 or 1."""
+
+
+class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        ans = 0
+        self.maps = grid
+        self.n = len(grid)
+        self.m = len(grid[0])
+
+        for i, j in product(range(self.n), range(self.m)):
+            if self.maps[i][j]:
+                ans = max(ans, self.trav(i, j))
+        return ans
+
+    def trav(self, i, j):
+        if i < 0 or j < 0 or i >= self.n or j >= self.m or self.maps[i][j] == 0:
+            return 0
+        self.maps[i][j] = 0
+        return 1 + self.trav(i - 1, j) + self.trav(i + 1, j) + self.trav(i, j - 1) + self.trav(i, j + 1)
+
+# Submission Details:
+# >95%/>60%
