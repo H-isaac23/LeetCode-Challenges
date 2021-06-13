@@ -22,3 +22,20 @@ Constraints:
 1 <= words.length <= 5000
 0 <= words[i].length <= 300
 words[i] consists of lower-case English letters."""
+
+
+class Solution:
+    def palindromePairs(self, words: List[str]) -> List[List[int]]:
+        ans = []
+        for i in range(len(words)):
+            for j in range(len(words)):
+                if i == j:
+                    continue
+                new = words[i] + words[j]
+                if new == new[::-1]:
+                    ans.append([i, j])
+
+        return ans
+
+# Time complexity: O(n^3)
+# Works, but too slow
