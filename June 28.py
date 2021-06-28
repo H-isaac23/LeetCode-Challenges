@@ -19,3 +19,14 @@ Constraints:
 1 <= s.length <= 105
 s consists of lowercase English letters."""
 
+
+class Solution:
+    def removeDuplicates(self, s: str) -> str:
+        new = []
+        for x in s:
+            if len(new) > 0 and x == new[-1]:
+                new.pop()
+            else:
+                new.append(x)
+
+        return ''.join(new)
