@@ -18,4 +18,4 @@ class Solution:
             bint += str(temp.val)
             temp = temp.next
 
-        return int((bint), 2)
+        return int(bint, 2)
