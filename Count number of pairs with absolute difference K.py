@@ -31,3 +31,4 @@ class Solution:
                     count += 1
         return count
 # way too slow lmao
+# lmao could've just iterated through the array twice smh
