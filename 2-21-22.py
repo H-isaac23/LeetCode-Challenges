@@ -33,3 +33,15 @@ class Solution:
         return curr_num
 
 
+class Solution2:
+    def majorityElement(self, nums: List[int]) -> int:
+        count = 0
+        curr_num = None
+
+        for num in nums:
+            if count == 0:
+                curr_num = num
+            count += (1 if num == curr_num else -1)
+
+        return curr_num
+
